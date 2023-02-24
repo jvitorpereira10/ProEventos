@@ -9,9 +9,9 @@ namespace ProEventos.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EventoController : ControllerBase
+    public class EventController : ControllerBase
     {
-        public EventoController()
+        public EventController()
         {
             
         }
