@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using ProEvents.API.Data;
 using ProEvents.API.Models;
 
 namespace ProEvents.API.Controllers
@@ -12,41 +14,55 @@ namespace ProEvents.API.Controllers
     [Route("api/[controller]")]
     public class EventController : ControllerBase
     {
-        public IEnumerable<Event> _events = new Event [] {
-               new Event(){
-                    EventId = 1,
-                    Theme = "Angular 11 e .NET 5",
-                    Local = "Quintana-SP",
-                    Batch = "1º Lote",
-                    ImageURL = "https://media.gazetadopovo.com.br/2021/10/29144929/20171109181552__ndr0597-1920x1024-960x540.jpeg",
-                    AmountPeople = Convert.ToInt32("250"),
-                    EventDate = DateTime.Now.AddDays(2).ToString()
-               },
-               new Event(){
-                    EventId = 1,
-                    Theme = "EF e .NET",
-                    Local = "Marília-SP",
-                    Batch = "1º Lote",
-                    ImageURL = "https://media.gazetadopovo.com.br/2021/10/29144929/20171109181552__ndr0597-1920x1024-960x540.jpeg",
-                    AmountPeople = Convert.ToInt32("150"),
-                    EventDate = DateTime.Now.AddDays(5).ToString()
-                }};
+        private readonly DataContext _context;
 
-        public EventController()
+        public EventController(DataContext context)
         {
-            
+            _context = context;
         }
 
         [HttpGet]
         public IEnumerable<Event> Get()
         {           
-            return _events;
+            return _context.Events;
         }
         
         [HttpGet("{id}")]
-        public IEnumerable<Event> Get(int id)
+        public async Task<Event> Get(int id)
         {            
-            return _events.Where(e => e.EventId == id);
+            return await _context.Events.FindAsync(id);
+        }
+
+        [HttpPost]
+        public async Task Post([FromBody] Event eventBody)
+        {
+            _context.Add(eventBody);
+            await _context.SaveChangesAsync();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<Event> Put([FromBody] Event eventBody, int id)
+        {
+            var eventoToUpdate = await _context.Events.FindAsync(id);
+
+            eventoToUpdate.Local = !string.IsNullOrEmpty(eventBody.Local) ? eventBody.Local : eventoToUpdate.Local;
+            eventoToUpdate.EventDate = !string.IsNullOrEmpty(eventBody.EventDate) ? eventBody.EventDate : eventoToUpdate.EventDate;
+            eventoToUpdate.Theme = !string.IsNullOrEmpty(eventBody.Theme) ? eventBody.Theme : eventoToUpdate.Theme;
+            eventoToUpdate.AmountPeople = !string.IsNullOrEmpty(eventBody.AmountPeople.ToString()) ? eventBody.AmountPeople : eventoToUpdate.AmountPeople;
+            eventoToUpdate.Batch = !string.IsNullOrEmpty(eventBody.Batch) ? eventBody.Batch : eventoToUpdate.Batch;
+            eventoToUpdate.ImageURL = !string.IsNullOrEmpty(eventBody.ImageURL) ? eventBody.ImageURL : eventoToUpdate.ImageURL;
+
+            _context.Entry(eventoToUpdate).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return eventoToUpdate;
+        }
+        
+        [HttpDelete]
+        public async Task Delete(int? id)
+        {
+            var eventoToDelete = await _context.Events.FindAsync(id.Value);
+            _context.Remove(eventoToDelete);
+            await _context.SaveChangesAsync();
         }
     }
 }
