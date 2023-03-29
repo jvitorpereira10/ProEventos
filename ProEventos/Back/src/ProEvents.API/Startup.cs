@@ -31,6 +31,7 @@ namespace ProEvents.API
             services.AddDbContext<DataContext>(
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -53,6 +54,10 @@ namespace ProEvents.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(access => access.AllowAnyHeader()
+                                        .AllowAnyMethod()
+                                        .AllowAnyOrigin());
 
             app.UseEndpoints(endpoints =>
             {

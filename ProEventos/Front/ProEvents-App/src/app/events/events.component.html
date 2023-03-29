@@ -1,1 +1,8 @@
 <h1>Events Components</h1>
+
+<div *ngFor="let item of events">
+  <p><b>Tema: </b> {{item.theme}}</p>
+  <p><b>Local: </b> {{item.local}}</p>
+  <p><b>Data: </b> {{item.eventDate}}</p>
+  <hr>
+</div>
