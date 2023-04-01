@@ -12,7 +12,7 @@ export class EventsComponent {
   {
   }
 
-  public events: any;
+  public events: any = [];
 
   ngOnInit() {
     this.getEvents();

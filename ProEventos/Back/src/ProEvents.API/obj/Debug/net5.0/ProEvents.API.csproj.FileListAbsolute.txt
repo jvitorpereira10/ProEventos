@@ -5,13 +5,11 @@ C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\b
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ProEvents.API.runtimeconfig.json
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ProEvents.API.runtimeconfig.dev.json
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ProEvents.API.dll
-C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ref\ProEvents.API.dll
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ProEvents.API.pdb
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\ProEvents.API.csprojAssemblyReference.cache
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\ProEvents.API.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\ProEvents.API.AssemblyInfoInputs.cache
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\ProEvents.API.AssemblyInfo.cs
@@ -19,7 +17,6 @@ C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\o
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\ProEvents.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\ProEvents.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\staticwebassets\ProEvents.API.StaticWebAssets.Manifest.cache
-C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\staticwebassets\ProEvents.API.StaticWebAssets.xml
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\scopedcss\bundle\ProEvents.API.styles.css
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\ProEvents.API.RazorTargetAssemblyInfo.cache
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\ProEvents.API.csproj.CopyComplete
@@ -55,3 +52,6 @@ C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\b
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ref\ProEvents.API.dll
+C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\ProEvents.API.csprojAssemblyReference.cache
+C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\staticwebassets\ProEvents.API.StaticWebAssets.xml

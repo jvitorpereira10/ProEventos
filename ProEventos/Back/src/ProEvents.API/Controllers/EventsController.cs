@@ -48,7 +48,7 @@ namespace ProEvents.API.Controllers
             eventoToUpdate.Local = !string.IsNullOrEmpty(eventBody.Local) ? eventBody.Local : eventoToUpdate.Local;
             eventoToUpdate.EventDate = !string.IsNullOrEmpty(eventBody.EventDate) ? eventBody.EventDate : eventoToUpdate.EventDate;
             eventoToUpdate.Theme = !string.IsNullOrEmpty(eventBody.Theme) ? eventBody.Theme : eventoToUpdate.Theme;
-            eventoToUpdate.AmountPeople = !string.IsNullOrEmpty(eventBody.AmountPeople.ToString()) ? eventBody.AmountPeople : eventoToUpdate.AmountPeople;
+            eventoToUpdate.AmountPeople = eventBody.AmountPeople != 0 ? eventBody.AmountPeople : eventoToUpdate.AmountPeople;
             eventoToUpdate.Batch = !string.IsNullOrEmpty(eventBody.Batch) ? eventBody.Batch : eventoToUpdate.Batch;
             eventoToUpdate.ImageURL = !string.IsNullOrEmpty(eventBody.ImageURL) ? eventBody.ImageURL : eventoToUpdate.ImageURL;
 
