@@ -13,6 +13,9 @@ export class EventsComponent {
   }
 
   public events: any = [];
+  widthImg: number = 150;
+  marginImg: number = 2;
+  showImage = true;
 
   ngOnInit() {
     this.getEvents();
@@ -23,6 +26,10 @@ export class EventsComponent {
       response => this.events = response,
       error => console.log(error),
     );
+  }
+
+  public changeImageState(): void{
+    this.showImage = !this.showImage;
   }
 
 }
