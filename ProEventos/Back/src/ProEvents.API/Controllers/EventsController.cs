@@ -43,18 +43,18 @@ namespace ProEvents.API.Controllers
         [HttpPut("{id}")]
         public async Task<Event> Put([FromBody] Event eventBody, int id)
         {
-            var eventoToUpdate = await _context.Events.FindAsync(id);
+            var eventToUpdate = await _context.Events.FindAsync(id);
 
-            eventoToUpdate.Local = !string.IsNullOrEmpty(eventBody.Local) ? eventBody.Local : eventoToUpdate.Local;
-            eventoToUpdate.EventDate = !string.IsNullOrEmpty(eventBody.EventDate) ? eventBody.EventDate : eventoToUpdate.EventDate;
-            eventoToUpdate.Theme = !string.IsNullOrEmpty(eventBody.Theme) ? eventBody.Theme : eventoToUpdate.Theme;
-            eventoToUpdate.AmountPeople = eventBody.AmountPeople != 0 ? eventBody.AmountPeople : eventoToUpdate.AmountPeople;
-            eventoToUpdate.Batch = !string.IsNullOrEmpty(eventBody.Batch) ? eventBody.Batch : eventoToUpdate.Batch;
-            eventoToUpdate.ImageURL = !string.IsNullOrEmpty(eventBody.ImageURL) ? eventBody.ImageURL : eventoToUpdate.ImageURL;
+            eventToUpdate.Local = !string.IsNullOrEmpty(eventBody.Local) ? eventBody.Local : eventToUpdate.Local;
+            eventToUpdate.EventDate = !string.IsNullOrEmpty(eventBody.EventDate) ? eventBody.EventDate : eventToUpdate.EventDate;
+            eventToUpdate.Theme = !string.IsNullOrEmpty(eventBody.Theme) ? eventBody.Theme : eventToUpdate.Theme;
+            eventToUpdate.AmountPeople = eventBody.AmountPeople != 0 ? eventBody.AmountPeople : eventToUpdate.AmountPeople;
+            eventToUpdate.Batch = !string.IsNullOrEmpty(eventBody.Batch) ? eventBody.Batch : eventToUpdate.Batch;
+            eventToUpdate.ImageURL = !string.IsNullOrEmpty(eventBody.ImageURL) ? eventBody.ImageURL : eventToUpdate.ImageURL;
 
-            _context.Entry(eventoToUpdate).State = EntityState.Modified;
+            _context.Entry(eventToUpdate).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-            return eventoToUpdate;
+            return eventToUpdate;
         }
         
         [HttpDelete]

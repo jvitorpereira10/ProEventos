@@ -1,18 +1,23 @@
 <h2><b>Events</b></h2>
 <hr>
 
-<form action="" class="d-flex flex-row align-items-center flex-wrap">
-  <input type="text" class="form-control mb-2 my-1 me-sm-2 w-auto" placeholder="search">
+<div class="d-flex flex-row align-items-center flex-wrap">
+  <input
+  type="text"
+  class="form-control mb-2 my-1 me-sm-2 w-auto"
+  placeholder="search"
+  [(ngModel)]="filterList"
+  >
   <button class="btn btn-outline-success mb-2 my-1">Search</button>
-</form>
-
+</div>
+<h3>Filter: {{filterList}}</h3>
 <table class="table table-striped">
   <thead class="table-dark">
     <tr>
       <th>
         <button type="button" class="btn btn-outline-light btn-sm"
         (click)="changeImageState()">
-          {{!showImage ? 'show' : 'hide'}}
+          {{!showImage ? 'Show' : 'Hide'}}
         </button>
       </th>
       <th>#</th>
@@ -24,8 +29,8 @@
       <th>Options</th>
     </tr>
   </thead>
-  <tbody *ngIf="events && events.length">
-      <tr *ngFor="let event of events">
+  <tbody *ngIf="eventsFiltereds && eventsFiltereds.length">
+      <tr *ngFor="let event of eventsFiltereds">
         <td>
           <img [collapse]="!showImage"
           [isAnimated]="true"
@@ -43,7 +48,7 @@
         <td>{{event.Options}}</td>
     </tr>
   </tbody>
-  <tfoot *ngIf="!events.length">
+  <tfoot *ngIf="!eventsFiltereds.length">
     <tr>
       <td colspan="8" class="text-center">
         <h6>Nenhum evento encontrado!</h6>
