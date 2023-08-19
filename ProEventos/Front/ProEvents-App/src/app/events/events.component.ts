@@ -45,7 +45,6 @@ export class EventsComponent {
       response => {
         this.events = response,
         this.eventsFiltereds = this.events;
-
       },
       error => console.log(error),
     );

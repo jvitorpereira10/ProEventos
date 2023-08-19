@@ -2,15 +2,17 @@
 <hr>
 
 <div class="d-flex flex-row align-items-center flex-wrap">
-  <input
-  type="text"
-  class="form-control mb-2 my-1 me-sm-2 w-auto"
-  placeholder="search"
-  [(ngModel)]="filterList"
-  >
-  <button class="btn btn-outline-success mb-2 my-1">Search</button>
+  <div class="mb-2 my-1 me-sm-2">
+    <label>Filter: </label>
+  </div>
+    <input
+    type="text"
+    class="form-control mb-2 my-1 me-sm-2 w-auto"
+    placeholder="search"
+    [(ngModel)]="filterList"
+    >
 </div>
-<h3>Filter: {{filterList}}</h3>
+<!-- <h3>Filter: {{filterList}}</h3> -->
 <table class="table table-striped">
   <thead class="table-dark">
     <tr>
@@ -46,7 +48,11 @@
         <td>{{event.amountPeople}}</td>
         <td>{{event.batch}}</td>
         <td>{{event.Options}}</td>
-    </tr>
+        <td>
+          <button type="button" class="btn btn-primary btn-sm mr-2">Edit</button>
+          <button type="button" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+      </tr>
   </tbody>
   <tfoot *ngIf="!eventsFiltereds.length">
     <tr>
