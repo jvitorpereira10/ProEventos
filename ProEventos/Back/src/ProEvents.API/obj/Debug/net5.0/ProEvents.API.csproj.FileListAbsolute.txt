@@ -55,3 +55,9 @@ C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\b
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ref\ProEvents.API.dll
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\ProEvents.API.csprojAssemblyReference.cache
 C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\obj\Debug\net5.0\staticwebassets\ProEvents.API.StaticWebAssets.xml
+C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ProEvents.Application.dll
+C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ProEvents.Domain.dll
+C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ProEvents.Persistence.dll
+C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ProEvents.Application.pdb
+C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ProEvents.Domain.pdb
+C:\Users\joao.santos\source\repos\ProEventos\ProEventos\Back\src\ProEvents.API\bin\Debug\net5.0\ProEvents.Persistence.pdb
