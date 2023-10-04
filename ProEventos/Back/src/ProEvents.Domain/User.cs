@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ProEvents.API.Models
+namespace ProEvents.Domain
 {
     public class User
     {
