@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProEvents.Domain
 {
@@ -14,5 +11,6 @@ namespace ProEvents.Domain
         public string Phone { get; set; }
         public string Email { get; set; }
         public IEnumerable<SocialNetwork> SocialMedia { get; set; }
+        public IEnumerable<EventSpeaker> EventSpeakers { get; set; }
     }
 }
