@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using ProEvents.Persistence.Interfaces;
 
 namespace ProEvents.Persistence

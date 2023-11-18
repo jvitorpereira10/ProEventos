@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using ProEvents.Application.Interfaces;
 using ProEvents.Domain;
@@ -41,9 +42,16 @@ namespace ProEvents.Application
                 var _eventToUpdate = await _eventPersistence.GetEventByIdAsync(eventId);
                 if (_eventToUpdate == null) return null;
 
+                // _eventToUpdate.Local = !string.IsNullOrWhiteSpace(model.Local) ? model.Local : _eventToUpdate.Local;
+                // _eventToUpdate.EventDate = model.EventDate != null ? model.EventDate : _eventToUpdate.EventDate;
+                // _eventToUpdate.Theme = !string.IsNullOrWhiteSpace(model.Theme) ? model.Theme : _eventToUpdate.Theme;
+                // _eventToUpdate.AmountPeople = model.AmountPeople != 0 ? model.AmountPeople : _eventToUpdate.AmountPeople;
+                // _eventToUpdate.Batch = model.Batch.Count() > 0 ? model.Batch : _eventToUpdate.Batch;
+                // _eventToUpdate.ImageURL = !string.IsNullOrWhiteSpace(model.ImageURL) ? model.ImageURL : _eventToUpdate.ImageURL;
+
                 model.Id = eventId;
 
-                _genericPersistence.Update<Event>(_eventToUpdate);
+                _genericPersistence.Update<Event>(model);
                 if (await _genericPersistence.SaveChangesAsync())
                 {
                     return await _eventPersistence.GetEventByIdAsync(eventId);
@@ -56,7 +64,7 @@ namespace ProEvents.Application
             }
         }
 
-        public async Task<bool> DeleteEvent(int eventId)
+        public async Task<bool> DeleteEvent(int? eventId)
         {
             try
             {

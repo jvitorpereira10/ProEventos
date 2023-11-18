@@ -5,7 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using ProEvents.Application;
+using ProEvents.Application.Interfaces;
 using ProEvents.Persistence;
+using ProEvents.Persistence.Interfaces;
 
 namespace ProEvents.API
 {
@@ -25,7 +28,14 @@ namespace ProEvents.API
                 context => context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
             services.AddCors();
-            services.AddControllers();
+            services.AddControllers()
+                    .AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+                    
+            services.AddScoped<IEventService, EventService>();
+            services.AddScoped<ISpeakerService, SpeakerService>();
+            services.AddScoped<IGenericPersistence, GenericPersistence>();
+            services.AddScoped<IEventPersistence, EventPersistence>();
+            services.AddScoped<ISpeakerPersistence, SpeakerPersistence>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProEvents.API", Version = "v1" });

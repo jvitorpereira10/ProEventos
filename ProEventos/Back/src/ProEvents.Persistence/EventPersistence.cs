@@ -12,6 +12,7 @@ namespace ProEvents.Persistence
         public EventPersistence(ProEventsContext context)
         {
             _context = context;
+            _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         public async Task<Event[]> GetAllEventsAsync(bool includeSpeakers = false)
@@ -33,8 +34,9 @@ namespace ProEvents.Persistence
             return await query.ToArrayAsync();
         }
 
-        public async Task<Event> GetEventByIdAsync(int eventId, bool includeSpeakers = false)
+        public async Task<Event> GetEventByIdAsync(int? eventId, bool includeSpeakers = false)
         {
+            if (eventId == null) return null;
             IQueryable<Event> query = GetEventsBase(includeSpeakers);
 
             return await query.FirstOrDefaultAsync(e => e.Id == eventId);
