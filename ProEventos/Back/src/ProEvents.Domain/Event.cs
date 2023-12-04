@@ -15,7 +15,7 @@ namespace ProEvents.Domain
         public string ImageURL { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public IEnumerable<Batch> Batch { get; set; }
+        public IEnumerable<Batch> Batches { get; set; }
         public IEnumerable<SocialNetwork> SocialMedia { get; set; }
         public IEnumerable<EventSpeaker> EventSpeakers { get; set; }
 

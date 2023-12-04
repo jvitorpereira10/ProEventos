@@ -45,7 +45,7 @@ namespace ProEvents.Persistence
         private IQueryable<Event> GetEventsBase(bool includeSpeakers)
         {
             IQueryable<Event> query = _context.Events
-                    .Include(e => e.Batch)
+                    .Include(e => e.Batches)
                     .Include(e => e.SocialMedia);
 
             if (includeSpeakers)

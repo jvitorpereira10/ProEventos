@@ -1,22 +1,25 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { EventService } from '../services/event.service';
+import { Event } from '../models/Event';
 
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
-  styleUrls: ['./events.component.scss']
+  styleUrls: ['./events.component.scss'],
+  //providers: [EventService]
 })
 export class EventsComponent {
 
-  constructor(private http: HttpClient)
+  constructor(private eventService: EventService)
   {
   }
 
-  public events: any = [];
-  public eventsFiltereds : any = [];
-  widthImg: number = 150;
-  marginImg: number = 2;
-  showImage = true;
+  public events: Event[] = [];
+  public eventsFiltereds : Event[] = [];
+
+  public widthImg: number = 150;
+  public marginImg: number = 2;
+  public showImage = true;
   private _filterList : string = '';
 
   public get filterList(): string {
@@ -28,30 +31,29 @@ export class EventsComponent {
     this.eventsFiltereds = this._filterList ? this.filterEvents(this.filterList) : this.events
   }
 
-  filterEvents(filterBy: string): any {
+  public filterEvents(filterBy: string): Event[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.events.filter(
       (event: any) => event.theme.toLocaleLowerCase().indexOf(filterBy) !== -1 ||
-                      event.local.toLocaleLowerCase().indexOf(filterBy) !== -1
+      event.local.toLocaleLowerCase().indexOf(filterBy) !== -1
     );
   }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.getEvents();
   }
 
   public getEvents(): void {
-    this.http.get('https://localhost:5001/api/events').subscribe(
-      response => {
-        this.events = response,
+    this.eventService.getEvents().subscribe({
+      next: (eventResponse: Event[]) => {
+        this.events = eventResponse;
         this.eventsFiltereds = this.events;
       },
-      error => console.log(error),
-    );
+      error: (error: any) => console.log(error)
+    });
   }
 
-  public changeImageState(): void{
+  public changeImageState(): void {
     this.showImage = !this.showImage;
   }
-
 }
