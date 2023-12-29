@@ -25,7 +25,7 @@ namespace ProEvents.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ProEventsContext>(
-                context => context.UseSqlite(Configuration.GetConnectionString("Default"))
+                context => context.UseSqlite(Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly("ProEvents.API"))
             );
             services.AddCors();
             services.AddControllers()

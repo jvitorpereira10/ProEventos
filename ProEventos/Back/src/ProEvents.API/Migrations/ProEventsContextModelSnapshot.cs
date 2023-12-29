@@ -2,21 +2,19 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProEvents.Persistence;
 
-namespace ProEvents.Persistence.Migrations
+namespace ProEvents.API.Migrations
 {
     [DbContext(typeof(ProEventsContext))]
-    [Migration("20231004184006_Initial")]
-    partial class Initial
+    partial class ProEventsContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.2");
+                .HasAnnotation("ProductVersion", "5.0.4");
 
             modelBuilder.Entity("ProEvents.Domain.Batch", b =>
                 {
@@ -46,7 +44,7 @@ namespace ProEvents.Persistence.Migrations
 
                     b.HasIndex("EventId");
 
-                    b.ToTable("Batch");
+                    b.ToTable("Batches");
                 });
 
             modelBuilder.Entity("ProEvents.Domain.Event", b =>
@@ -152,7 +150,7 @@ namespace ProEvents.Persistence.Migrations
             modelBuilder.Entity("ProEvents.Domain.Batch", b =>
                 {
                     b.HasOne("ProEvents.Domain.Event", "Event")
-                        .WithMany("Batch")
+                        .WithMany("Batches")
                         .HasForeignKey("EventId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -169,7 +167,7 @@ namespace ProEvents.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("ProEvents.Domain.Speaker", "Speaker")
-                        .WithMany()
+                        .WithMany("EventSpeakers")
                         .HasForeignKey("SpeakerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -183,11 +181,13 @@ namespace ProEvents.Persistence.Migrations
                 {
                     b.HasOne("ProEvents.Domain.Event", "Event")
                         .WithMany("SocialMedia")
-                        .HasForeignKey("EventId");
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ProEvents.Domain.Speaker", "Speaker")
                         .WithMany("SocialMedia")
-                        .HasForeignKey("SpeakerId");
+                        .HasForeignKey("SpeakerId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Event");
 
@@ -196,7 +196,7 @@ namespace ProEvents.Persistence.Migrations
 
             modelBuilder.Entity("ProEvents.Domain.Event", b =>
                 {
-                    b.Navigation("Batch");
+                    b.Navigation("Batches");
 
                     b.Navigation("EventSpeakers");
 
@@ -205,6 +205,8 @@ namespace ProEvents.Persistence.Migrations
 
             modelBuilder.Entity("ProEvents.Domain.Speaker", b =>
                 {
+                    b.Navigation("EventSpeakers");
+
                     b.Navigation("SocialMedia");
                 });
 #pragma warning restore 612, 618

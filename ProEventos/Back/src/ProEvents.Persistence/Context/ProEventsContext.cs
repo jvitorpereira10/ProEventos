@@ -11,7 +11,7 @@ namespace ProEvents.Persistence
         
         public DbSet<Event> Events { get; set; }
 
-        public DbSet<Batch> Batch { get; set; }
+        public DbSet<Batch> Batches { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
         public DbSet<EventSpeaker> EventsSpeakers { get; set; }
         public DbSet<SocialNetwork> SocialMedia { get; set; }

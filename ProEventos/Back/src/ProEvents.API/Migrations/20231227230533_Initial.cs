@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ProEvents.Persistence.Migrations
+namespace ProEvents.API.Migrations
 {
     public partial class Initial : Migration
     {
@@ -44,7 +44,7 @@ namespace ProEvents.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Batch",
+                name: "Batches",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -58,9 +58,9 @@ namespace ProEvents.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Batch", x => x.Id);
+                    table.PrimaryKey("PK_Batches", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Batch_Events_EventId",
+                        name: "FK_Batches_Events_EventId",
                         column: x => x.EventId,
                         principalTable: "Events",
                         principalColumn: "Id",
@@ -110,18 +110,18 @@ namespace ProEvents.Persistence.Migrations
                         column: x => x.EventId,
                         principalTable: "Events",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_SocialMedia_Speakers_SpeakerId",
                         column: x => x.SpeakerId,
                         principalTable: "Speakers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Batch_EventId",
-                table: "Batch",
+                name: "IX_Batches_EventId",
+                table: "Batches",
                 column: "EventId");
 
             migrationBuilder.CreateIndex(
@@ -143,7 +143,7 @@ namespace ProEvents.Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Batch");
+                name: "Batches");
 
             migrationBuilder.DropTable(
                 name: "EventsSpeakers");
