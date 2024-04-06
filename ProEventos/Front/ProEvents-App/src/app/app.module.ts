@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BsDropdownModule } from 'ngx-bootstrap/DropDown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,8 @@ import { DateTimeFormatPipe } from './helpers/DateTimeFormat.pipe';
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [EventService],
   bootstrap: [AppComponent]

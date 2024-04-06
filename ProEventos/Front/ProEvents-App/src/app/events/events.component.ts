@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { EventService } from '../services/event.service';
 import { Event } from '../models/Event';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-events',
@@ -10,10 +11,15 @@ import { Event } from '../models/Event';
 })
 export class EventsComponent {
 
-  constructor(private eventService: EventService)
+  constructor(
+    private eventService: EventService,
+    private modalService: BsModalService
+
+    )
   {
   }
 
+  modalRef?: BsModalRef;
   public events: Event[] = [];
   public eventsFiltereds : Event[] = [];
 
@@ -55,5 +61,16 @@ export class EventsComponent {
 
   public changeImageState(): void {
     this.showImage = !this.showImage;
+  }
+  openModal(template: TemplateRef<void>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+  }
+
+  confirm(): void {
+    this.modalRef?.hide();
+  }
+
+  decline(): void {
+    this.modalRef?.hide();
   }
 }

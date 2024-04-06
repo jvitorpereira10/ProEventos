@@ -1,5 +1,5 @@
 {
-  "dependencies": {
-    "@angular-devkit/build-angular": "^17.0.8"
+  "devDependencies": {
+    "typescript": "^5.4.3"
   }
 }
