@@ -2,6 +2,8 @@ import { Component, TemplateRef } from '@angular/core';
 import { EventService } from '../services/event.service';
 import { Event } from '../models/Event';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-events',
@@ -13,8 +15,9 @@ export class EventsComponent {
 
   constructor(
     private eventService: EventService,
-    private modalService: BsModalService
-
+    private modalService: BsModalService,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
     )
   {
   }
@@ -46,7 +49,8 @@ export class EventsComponent {
   }
 
   public ngOnInit(): void {
-    this.getEvents();
+    this.spinner.show();
+      this.getEvents();
   }
 
   public getEvents(): void {
@@ -55,7 +59,11 @@ export class EventsComponent {
         this.events = eventResponse;
         this.eventsFiltereds = this.events;
       },
-      error: (error: any) => console.log(error)
+      error: (error: any) => {
+        this.spinner.hide();
+        this.toastr.error('Erro ao Carregar os Eventos', 'Erro!');
+      },
+      complete: () => this.spinner.hide()
     });
   }
 
@@ -68,6 +76,7 @@ export class EventsComponent {
 
   confirm(): void {
     this.modalRef?.hide();
+    this.toastr.success('Deletado!', 'Evento deletado com sucesso!');
   }
 
   decline(): void {
