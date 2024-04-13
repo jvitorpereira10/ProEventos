@@ -45,3 +45,6 @@ Thumbs.db
 *.db
 *.db-shm
 *.db-wal
+ProEventos/Back/src/ProEvents.API/ProEvents.db
+ProEventos/Back/src/ProEvents.API/obj/Debug/net5.0/ProEvents.API.csproj.AssemblyReference.cache
+ProEventos/Back/src/ProEvents.Persistence/obj/Debug/net5.0/ProEvents.Persistence.csproj.AssemblyReference.cache
